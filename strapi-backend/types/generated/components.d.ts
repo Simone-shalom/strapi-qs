@@ -13,6 +13,17 @@ export interface BlocksHero extends Schema.Component {
   };
 }
 
+export interface BlocksPricing extends Schema.Component {
+  collectionName: 'components_blocks_pricings';
+  info: {
+    displayName: 'Pricing';
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.String;
+  };
+}
+
 export interface BlocksRow extends Schema.Component {
   collectionName: 'components_blocks_rows';
   info: {
@@ -82,6 +93,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'blocks.hero': BlocksHero;
+      'blocks.pricing': BlocksPricing;
       'blocks.row': BlocksRow;
       'elements.button-link': ElementsButtonLink;
       'elements.card': ElementsCard;
