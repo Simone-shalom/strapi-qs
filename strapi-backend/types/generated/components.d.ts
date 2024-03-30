@@ -13,6 +13,16 @@ export interface BlocksHero extends Schema.Component {
   };
 }
 
+export interface BlocksRow extends Schema.Component {
+  collectionName: 'components_blocks_rows';
+  info: {
+    displayName: 'Row';
+  };
+  attributes: {
+    card: Attribute.Component<'elements.card', true>;
+  };
+}
+
 export interface ElementsButtonLink extends Schema.Component {
   collectionName: 'components_elements_button_links';
   info: {
@@ -54,6 +64,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'blocks.hero': BlocksHero;
+      'blocks.row': BlocksRow;
       'elements.button-link': ElementsButtonLink;
       'elements.card': ElementsCard;
       'seo.metadata': SeoMetadata;
