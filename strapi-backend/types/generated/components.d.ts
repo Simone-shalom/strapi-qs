@@ -26,6 +26,18 @@ export interface ElementsButtonLink extends Schema.Component {
   };
 }
 
+export interface ElementsCard extends Schema.Component {
+  collectionName: 'components_elements_cards';
+  info: {
+    displayName: 'Card';
+  };
+  attributes: {
+    image: Attribute.Media;
+    heading: Attribute.String;
+    description: Attribute.Text;
+  };
+}
+
 export interface SeoMetadata extends Schema.Component {
   collectionName: 'components_seo_metadata';
   info: {
@@ -43,6 +55,7 @@ declare module '@strapi/types' {
     export interface Components {
       'blocks.hero': BlocksHero;
       'elements.button-link': ElementsButtonLink;
+      'elements.card': ElementsCard;
       'seo.metadata': SeoMetadata;
     }
   }
