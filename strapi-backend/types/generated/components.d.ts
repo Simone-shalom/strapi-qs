@@ -48,6 +48,24 @@ export interface ElementsCard extends Schema.Component {
   };
 }
 
+export interface ElementsPricingCard extends Schema.Component {
+  collectionName: 'components_elements_pricing_cards';
+  info: {
+    displayName: 'Pricing Card';
+  };
+  attributes: {
+    planType: Attribute.String;
+    planPrice: Attribute.String;
+    isFeatured: Attribute.Boolean & Attribute.DefaultTo<false>;
+    services: Attribute.Relation<
+      'elements.pricing-card',
+      'oneToMany',
+      'api::service.service'
+    >;
+    link: Attribute.Component<'elements.button-link'>;
+  };
+}
+
 export interface SeoMetadata extends Schema.Component {
   collectionName: 'components_seo_metadata';
   info: {
@@ -67,6 +85,7 @@ declare module '@strapi/types' {
       'blocks.row': BlocksRow;
       'elements.button-link': ElementsButtonLink;
       'elements.card': ElementsCard;
+      'elements.pricing-card': ElementsPricingCard;
       'seo.metadata': SeoMetadata;
     }
   }
